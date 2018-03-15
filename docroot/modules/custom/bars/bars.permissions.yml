@@ -1,0 +1,30 @@
+add bar entities:
+  title: 'Create new Bar entities'
+
+administer bar entities:
+  title: 'Administer Bar entities'
+  description: 'Allow to access the administration form to configure Bar entities.'
+  restrict access: true
+
+delete bar entities:
+  title: 'Delete Bar entities'
+
+edit bar entities:
+  title: 'Edit Bar entities'
+
+view published bar entities:
+  title: 'View published Bar entities'
+
+view unpublished bar entities:
+  title: 'View unpublished Bar entities'
+
+view all bar revisions:
+  title: 'View all Bar revisions'
+
+revert all bar revisions:
+  title: 'Revert all Bar revisions'
+  description: 'Role requires permission <em>view Bar revisions</em> and <em>edit rights</em> for bar entities in question or <em>administer bar entities</em>.'
+
+delete all bar revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Bar revisions</em> and <em>delete rights</em> for bar entities in question or <em>administer bar entities</em>.'
