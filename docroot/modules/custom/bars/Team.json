@@ -1,0 +1,73 @@
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7370"},"teamname":"Arizona Diamondbacks","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7371"},"teamname":"Atlanta Braves","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7372"},"teamname":"Baltimore Orioles","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7373"},"teamname":"Boston Red Sox","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7374"},"teamname":"Chicago Cubs","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7375"},"teamname":"Chicago White Sox","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7376"},"teamname":"Cincinnati Reds","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7377"},"teamname":"Cleveland Indians","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7378"},"teamname":"Colorado Rockies","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7379"},"teamname":"Detroit Tigers","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737a"},"teamname":"Houston Astros","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737b"},"teamname":"Kansas City Royals","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737c"},"teamname":"Los Angeles Angels","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737d"},"teamname":"Los Angeles Dodgers","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737e"},"teamname":"Miami Marlins","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f737f"},"teamname":"Milwaukee Brewers","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7380"},"teamname":"Minnesota Twins","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7381"},"teamname":"New York Mets","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7382"},"teamname":"New York Yankees","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7383"},"teamname":"Oakland Athletics","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7384"},"teamname":"Philadelphia Phillies","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7385"},"teamname":"Pittsburgh Pirates","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7386"},"teamname":"San Diego Padres","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7387"},"teamname":"San Francisco Giants","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7388"},"teamname":"Seattle Mariners","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7389"},"teamname":"St. Louis Cardinals","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738a"},"teamname":"Tampa Bay Rays","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738b"},"teamname":"Texas Rangers","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738c"},"teamname":"Toronto Blue Jays","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738d"},"teamname":"Washington Nationals","sport":0,"league":0}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738e"},"teamname":"Chicago Fire","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f738f"},"teamname":"Columbus Crew","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7390"},"teamname":"D.C. United","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7391"},"teamname":"Montreal Impact","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7392"},"teamname":"New England Revloution","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7393"},"teamname":"New York City FC","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7394"},"teamname":"New York Red Bulls","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7395"},"teamname":"Orlando City SC","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7396"},"teamname":"Philadelphia Union","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7397"},"teamname":"Colorado Rapids","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7398"},"teamname":"FC Dallas","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f7399"},"teamname":"Houston Dynamo","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739a"},"teamname":"LA Galaxy","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739b"},"teamname":"Portland Timbers","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739c"},"teamname":"Real Salt Lake","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739d"},"teamname":"San Jose Earthquakes","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739e"},"teamname":"Seattle Sounders FC","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f739f"},"teamname":"Sporting Kansas City","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a0"},"teamname":"Vancover Whitecaps FC","sport":1,"league":1}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a1"},"teamname":"Albania","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a2"},"teamname":"Austria","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a3"},"teamname":"Belgium","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a4"},"teamname":"Croatia","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a5"},"teamname":"Czech Republic","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a6"},"teamname":"England","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a7"},"teamname":"France","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a8"},"teamname":"Germany","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73a9"},"teamname":"Hungary","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73aa"},"teamname":"Iceland","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73ab"},"teamname":"Italy","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73ac"},"teamname":"Northern Ireland","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73ad"},"teamname":"Poland","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73ae"},"teamname":"Portugal","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73af"},"teamname":"Republic of Ireland","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b0"},"teamname":"Romania","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b1"},"teamname":"Russia","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b2"},"teamname":"Slovakia","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b3"},"teamname":"Spain","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b4"},"teamname":"Sweden","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b5"},"teamname":"Switzerland","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b6"},"teamname":"Turkey","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b7"},"teamname":"Ukraine","sport":1,"league":2}
+{"_id":{"$oid":"573a2a7e56e4ec3f007f73b8"},"teamname":"Wales","sport":1,"league":2}

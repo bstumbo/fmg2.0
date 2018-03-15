@@ -1,0 +1,139 @@
+<?php
+
+/**
+ * @file
+ * Adds autocomplete capabilities for Search API searches.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\search_api_autocomplete\AutocompleteFormUtility;
+use Drupal\search_api_autocomplete\Entity\Search;
+
+/**
+ * Implements hook_theme().
+ */
+function search_api_autocomplete_theme() {
+  $themes['search_api_autocomplete_suggestion'] = [
+    'variables' => [
+      'keys' => NULL,
+      'prefix' => NULL,
+      'suggestion_prefix' => '',
+      'user_input' => '',
+      'suggestion_suffix' => '',
+      'results' => NULL,
+    ],
+  ];
+
+  return $themes;
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function search_api_autocomplete_entity_operation(EntityInterface $entity) {
+  if ($entity->getEntityTypeId() != 'search_api_index') {
+    return [];
+  }
+
+  $operations = [];
+  $operations['autocomplete'] = [
+    'title' => t('Autocomplete'),
+    'weight' => 30,
+    'url' => Url::fromRoute('search_api_autocomplete.admin_overview', ['search_api_index' => $entity->id()]),
+  ];
+  return $operations;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for "views_exposed_form".
+ *
+ * Adds autocompletion to input fields for fulltext keywords on views with
+ * exposed filters.
+ *
+ * @see \Drupal\views\Form\ViewsExposedForm
+ * @see \Drupal\search_api_autocomplete\Plugin\search_api_autocomplete\type\Views
+ */
+function search_api_autocomplete_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $form_state->get('view');
+  if (substr($view->storage->get('base_table'), 0, 17) != 'search_api_index_') {
+    return;
+  }
+
+  /** @var \Drupal\search_api_autocomplete\Entity\SearchStorage $search_storage */
+  $search_storage = \Drupal::entityTypeManager()
+    ->getStorage('search_api_autocomplete_search');
+  $search = $search_storage->loadByType('views:' . $view->id());
+  if (!$search) {
+    return;
+  }
+
+  $config = $search->getTypeInstance()->getConfiguration();
+  $selected = in_array($view->current_display, $config['displays']['selected']);
+  if ($selected === $config['displays']['selected']) {
+    return;
+  }
+
+  $fields = $search->getIndex()->getFulltextFields();
+  if (!$fields) {
+    return;
+  }
+  // Add the "Search: Fulltext search" filter as another text field.
+  $fields[] = 'search_api_fulltext';
+
+  \Drupal::moduleHandler()->alter('search_api_autocomplete_views_fulltext_fields', $fields, $search, $view);
+
+  $base_data = [
+    'display' => $view->current_display,
+    'arguments' => $view->args,
+  ];
+
+  foreach ($view->filter as $filter_name => $filter) {
+    $key = $filter->options['expose']['identifier'];
+    if (!in_array($filter->realField, $fields)
+        || empty($filter->options['expose']['identifier'])
+        || !isset($form[$key])) {
+      continue;
+    }
+
+    $element = &$form[$key];
+    $data = $base_data;
+
+    // The Views filter for individual fulltext fields uses a nested "value"
+    // field for the real input, due to Views internals.
+    if (!empty($element['value'])) {
+      $element = &$element['value'];
+      $key .= '[value]';
+      // In this case, we also need to manually pass the fulltext fields, so
+      // they will be applied properly.
+      $data['fields'] = [$filter->realField];
+    }
+
+    if (isset($element['#type']) && $element['#type'] === 'textfield') {
+      $data['filter'] = $key;
+      AutocompleteFormUtility::alterElement($element, $search, $data);
+    }
+
+    unset($element);
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for "search_api_page_block_form".
+ *
+ * Adds autocompletion to the keywords field on search pages, if enabled by the
+ * user.
+ *
+ * @see \Drupal\search_api_page\Form\SearchApiPageBlockForm
+ * @see \Drupal\search_api_autocomplete\Plugin\search_api_autocomplete\type\Page
+ */
+function search_api_autocomplete_form_search_api_page_block_form_alter(array &$form, FormStateInterface $form_state) {
+  $id = 'search_api_page_' . $form_state->getBuildInfo()['args'][0]['search_api_page'];
+  $search = Search::load($id);
+
+  if ($search && $search->status()) {
+    AutocompleteFormUtility::alterElement($form['keys'], $search);
+  }
+}

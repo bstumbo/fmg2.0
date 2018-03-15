@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains bars.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bars_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bars module.
+    case 'help.page.bars':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Bar content type') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bars_theme() {
+  return [
+    'bars' => [
+      'render element' => 'children',
+    ],
+  ];
+}
