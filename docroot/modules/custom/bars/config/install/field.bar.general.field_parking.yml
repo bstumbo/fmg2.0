@@ -1,0 +1,23 @@
+uuid: 9e1ad50b-f5b9-4cdf-b802-102a1bcf134f
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_parking
+id: bar.general.field_parking
+field_name: field_parking
+entity_type: bar
+bundle: general
+label: Parking
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

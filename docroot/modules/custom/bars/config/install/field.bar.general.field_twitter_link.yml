@@ -1,0 +1,19 @@
+uuid: 65e5194d-2498-4fe2-886b-8820f2a22ebe
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_twitter_link
+id: bar.general.field_twitter_link
+field_name: field_twitter_link
+entity_type: bar
+bundle: general
+label: 'Twitter Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

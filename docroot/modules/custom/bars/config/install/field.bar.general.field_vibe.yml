@@ -1,0 +1,21 @@
+uuid: a7a8bfcc-3546-4806-8ba7-8fe1c0779db1
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_vibe
+  module:
+    - options
+id: bar.general.field_vibe
+field_name: field_vibe
+entity_type: bar
+bundle: general
+label: Vibe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

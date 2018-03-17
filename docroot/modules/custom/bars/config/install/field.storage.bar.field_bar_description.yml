@@ -1,0 +1,19 @@
+uuid: 0d00b05a-898d-4956-8f20-d757c256d3cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - bars
+    - text
+id: bar.field_bar_description
+field_name: field_bar_description
+entity_type: bar
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

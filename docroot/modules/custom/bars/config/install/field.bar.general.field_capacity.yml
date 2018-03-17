@@ -1,0 +1,23 @@
+uuid: 365caa54-5370-4faa-be42-56708dba70ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_capacity
+id: bar.general.field_capacity
+field_name: field_capacity
+entity_type: bar
+bundle: general
+label: Capacity
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,19 @@
+uuid: 32f3e4f3-ff50-4203-a8b9-07f7e3cc313f
+langcode: en
+status: true
+dependencies:
+  module:
+    - bars
+    - text
+id: bar.field_happy_hour
+field_name: field_happy_hour
+entity_type: bar
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

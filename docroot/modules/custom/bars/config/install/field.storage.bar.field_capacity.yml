@@ -1,0 +1,20 @@
+uuid: 30f6976e-aaab-4253-93a8-cfea088de44a
+langcode: en
+status: true
+dependencies:
+  module:
+    - bars
+id: bar.field_capacity
+field_name: field_capacity
+entity_type: bar
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

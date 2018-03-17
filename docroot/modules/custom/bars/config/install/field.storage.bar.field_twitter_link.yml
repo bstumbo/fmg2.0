@@ -1,0 +1,21 @@
+uuid: d4fee867-f0ae-4c77-9f0d-f4063a115019
+langcode: en
+status: true
+dependencies:
+  module:
+    - bars
+id: bar.field_twitter_link
+field_name: field_twitter_link
+entity_type: bar
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

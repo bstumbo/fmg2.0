@@ -1,0 +1,23 @@
+uuid: 7d0bf8f9-b9e6-403c-a1f6-f20cf57fce65
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_child_friendly
+id: bar.general.field_child_friendly
+field_name: field_child_friendly
+entity_type: bar
+bundle: general
+label: 'Child Friendly'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

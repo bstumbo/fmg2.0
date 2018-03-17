@@ -1,0 +1,21 @@
+uuid: ad446b23-9cd7-4498-a089-6f173d54186d
+langcode: en
+status: true
+dependencies:
+  config:
+    - bars.bar_type.general
+    - field.storage.bar.field_public_transportation
+  module:
+    - options
+id: bar.general.field_public_transportation
+field_name: field_public_transportation
+entity_type: bar
+bundle: general
+label: 'Public Transportation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

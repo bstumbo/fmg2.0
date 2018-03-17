@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "75a7bea935011a35c2b3ebe156e25c75",
+    "content-hash": "9fca118cd114e9b76ffa8a82656eb093",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2194,6 +2194,61 @@
                 "source": "http://cgit.drupalcode.org/jsonapi_extras"
             },
             "time": "2018-03-04T08:51:06+00:00"
+        },
+        {
+            "name": "drupal/masked_input",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/masked_input",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/masked_input-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "0a3cac983aeb8e4d50f719ce3f73f21d0b5342fc"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1516996384",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "gajanannehul",
+                    "homepage": "https://www.drupal.org/user/1500166"
+                },
+                {
+                    "name": "helior",
+                    "homepage": "https://www.drupal.org/user/333731"
+                },
+                {
+                    "name": "twooten",
+                    "homepage": "https://www.drupal.org/user/52983"
+                }
+            ],
+            "description": "Allows textfields to contain \"masked\" placeholders to easily communicate with the user how data should be formatted.",
+            "homepage": "https://www.drupal.org/project/masked_input",
+            "support": {
+                "source": "http://cgit.drupalcode.org/masked_input"
+            }
         },
         {
             "name": "drupal/migrate_plus",

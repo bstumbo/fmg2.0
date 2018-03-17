@@ -1,0 +1,21 @@
+uuid: c0a19835-8de1-48b0-8a95-da0f01732eea
+langcode: en
+status: true
+dependencies:
+  module:
+    - bars
+id: bar.field_website
+field_name: field_website
+entity_type: bar
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
