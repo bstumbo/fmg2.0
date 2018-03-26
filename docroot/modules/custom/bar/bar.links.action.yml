@@ -1,0 +1,5 @@
+entity.bar_entity.add_form:
+  route_name: entity.bar_entity.add_form
+  title: 'Add Bar'
+  appears_on:
+    - entity.bar_entity.collection

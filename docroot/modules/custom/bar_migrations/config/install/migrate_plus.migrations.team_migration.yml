@@ -1,0 +1,46 @@
+#Migration configuration for teams
+id: team_migration
+label: JSON Team Migration
+description: Team description
+migration_group: bar
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  item_selector: results
+  headers:
+    Accept: 'application/json; charset=utf-8'
+  urls: 'http://findyourgamedc.com/app/migrations/Team.json'
+  fields:
+      -
+        name: mdb_id
+        label: 'MongoDB ID'
+        selector: _id/$oid
+      -
+        name: teamname
+        label: 'Team Name'
+        selector: teamname
+      -
+        name: sport
+        label: 'Sport'
+        selector: sport
+      -
+        name: league
+        label: 'League'
+        selector: league
+    ids:
+      mdb_id:
+        type: string
+destination:
+  plugin: entity:taxonomy_term
+process:
+   vid:
+    plugin: default_value
+    default_value: teams
+   field_mongo_id: mdb_id
+   name: teamname
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - team_migration

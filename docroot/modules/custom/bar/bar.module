@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains bar.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function bar_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the bar module.
+    case 'help.page.bar':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Find Your Game bars') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function bar_theme() {
+  return [
+    'bar' => [
+      'render element' => 'children',
+    ],
+  ];
+}

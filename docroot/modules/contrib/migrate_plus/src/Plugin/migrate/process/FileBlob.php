@@ -38,10 +38,10 @@ class FileBlob extends ProcessPluginBase implements ContainerFactoryPluginInterf
    * @param \Drupal\Core\File\FileSystemInterface $file_system
    *   The file system service.
    */
-  public function __construct(array $configuration, $plugin_id, array $plugin_definition, FileSystemInterface $file_system) {
-    $configuration += array(
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, FileSystemInterface $file_system) {
+    $configuration += [
       'reuse' => FALSE,
-    );
+    ];
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     $this->fileSystem = $file_system;
   }

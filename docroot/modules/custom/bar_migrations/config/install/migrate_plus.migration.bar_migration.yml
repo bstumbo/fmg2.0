@@ -1,0 +1,59 @@
+#Migration configuration for bars
+id: bar_migration
+label: JSON Bar Migration
+description: Bar description
+migration_group: bar
+source:
+  plugin: url
+  data_fetcher_plugin: http
+  data_parser_plugin: json
+  item_selector: results
+  headers:
+    Accept: 'application/json; charset=utf-8'
+  urls: 'http://findyourgamedc.com/app/migrations/Bar.json'
+  fields:
+    -
+      name: mdb_id
+      label: 'MongoDB ID'
+      selector: _id/$oid
+    -
+      name: name
+      label: 'Bar Name'
+      selector: name
+    -
+      name: bar_description
+      label: 'Bar Description'
+      selector: bardescription
+    -
+      name: location
+      label: 'Bar Location'
+      selector: location
+    -
+      name: hours
+      label: 'Bar Hours'
+      selector: hours
+    -
+      name: phone_number
+      label: 'Phone Number'
+      selector: phone
+  ids:
+    mdb_id:
+      type: string
+destination:
+  plugin: entity:node
+
+process:
+  type:
+    plugin: default_value
+    default_value: bar_entity
+  field_mdb_id: mdb_id
+  title: name
+  field_bar_description: bar_description
+  field_location: location
+  field_bar_hours: hours
+  field_phone_number: phone_number
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - bar_migrations

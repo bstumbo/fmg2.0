@@ -1,0 +1,26 @@
+uuid: 41a2f3cc-eae7-4c4a-9336-3fb56772ae6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.bar_entity.field_bar_description
+    - node.type.bar_entity
+  module:
+    - text
+    - user
+id: node.bar_entity.default
+targetEntityType: node
+bundle: bar_entity
+mode: default
+content:
+  field_bar_description:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

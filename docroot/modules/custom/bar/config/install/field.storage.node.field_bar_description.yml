@@ -1,0 +1,22 @@
+uuid: f88bd266-3fa1-4eab-a277-9661ed64ce5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+  enforced:
+    module:
+    - bar
+id: node.field_bar_description
+field_name: field_bar_description
+entity_type: node
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

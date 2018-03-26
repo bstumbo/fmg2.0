@@ -1,0 +1,5 @@
+name: 'bar'
+type: module
+description: 'Find Your Game bars'
+core: 8.x
+package: 'Custom'

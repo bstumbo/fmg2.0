@@ -1,0 +1,22 @@
+uuid: ef224ffb-1847-470f-82d3-fa5274c7198c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+  enforced:
+    module:
+    - bar
+id: node.field_bar_hours
+field_name: field_bar_hours
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

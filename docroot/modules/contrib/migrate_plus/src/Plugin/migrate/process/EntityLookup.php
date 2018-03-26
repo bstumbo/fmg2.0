@@ -51,34 +51,74 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class EntityLookup extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
-  /** @var \Drupal\Core\Entity\EntityManagerInterface */
+  /**
+   * The entity manager.
+   *
+   * @var \Drupal\Core\Entity\EntityManagerInterface
+   */
   protected $entityManager;
 
-  /** @var \Drupal\migrate\Plugin\MigrationInterface */
+  /**
+   * The migration.
+   *
+   * @var \Drupal\migrate\Plugin\MigrationInterface
+   */
   protected $migration;
 
-  /** @var \Drupal\Core\Entity\EntityReferenceSelection\SelectionPluginManagerInterface */
+  /**
+   * The selection plugin.
+   *
+   * @var \Drupal\Core\Entity\EntityReferenceSelection\SelectionPluginManagerInterface
+   */
   protected $selectionPluginManager;
 
-  /** @var string */
+  /**
+   * The destination type.
+   *
+   * @var string
+   */
   protected $destinationEntityType;
 
-  /** @var string|bool */
+  /**
+   * The destination bundle.
+   *
+   * @var string|bool
+   */
   protected $destinationBundleKey;
 
-  /** @var string */
+  /**
+   * The lookup value's key.
+   *
+   * @var string
+   */
   protected $lookupValueKey;
 
-  /** @var string */
+  /**
+   * The lookup bundle's key.
+   *
+   * @var string
+   */
   protected $lookupBundleKey;
 
-  /** @var string */
+  /**
+   * The lookup bundle.
+   *
+   * @var string
+   */
   protected $lookupBundle;
 
-  /** @var string */
+  /**
+   * The lookup entity type.
+   *
+   * @var string
+   */
   protected $lookupEntityType;
 
-  /** @var string */
+  /**
+   * The destination property or field.
+   *
+   * @var string
+   */
   protected $destinationProperty;
 
   /**
@@ -145,7 +185,7 @@ class EntityLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
     }
 
     if (empty($this->lookupValueKey) || empty($this->lookupBundleKey) || empty($this->lookupBundle) || empty($this->lookupEntityType)) {
-      // See if we can introspect the lookup properties from the destination field.
+      // See if we can introspect the lookup properties from destination field.
       if (!empty($this->migration->getProcess()[$this->destinationBundleKey][0]['default_value'])) {
         $destinationEntityBundle = $this->migration->getProcess()[$this->destinationBundleKey][0]['default_value'];
         $fieldConfig = $this->entityManager->getFieldDefinitions($this->destinationEntityType, $destinationEntityBundle)[$destinationProperty]->getConfig($destinationEntityBundle);
@@ -163,8 +203,8 @@ class EntityLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
               }
             }
 
-            // Make an assumption that if the selection handler can target more than
-            // one type of entity that we will use the first entity type.
+            // Make an assumption that if the selection handler can target more
+            // than one type of entity that we will use the first entity type.
             $this->lookupEntityType = $this->lookupEntityType ?: reset($this->selectionPluginManager->createInstance($fieldConfig->getSetting('handler'))->getPluginDefinition()['entity_types']);
             $this->lookupValueKey = $this->lookupValueKey ?: $this->entityManager->getDefinition($this->lookupEntityType)->getKey('label');
             $this->lookupBundleKey = $this->lookupBundleKey ?: $this->entityManager->getDefinition($this->lookupEntityType)->getKey('bundle');
@@ -178,7 +218,7 @@ class EntityLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
 
           default:
             throw new MigrateException('Destination field type ' .
-              $fieldConfig->getType(). 'is not a recognized reference type.');
+              $fieldConfig->getType() . 'is not a recognized reference type.');
         }
       }
     }
@@ -198,8 +238,8 @@ class EntityLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
   /**
    * Checks for the existence of some value.
    *
-   * @param $value
-   * The value to query.
+   * @param mixed $value
+   *   The value to query.
    *
    * @return mixed|null
    *   Entity id if the queried entity exists. Otherwise NULL.

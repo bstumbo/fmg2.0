@@ -1,0 +1,14 @@
+
+# Bar menu items definition
+entity.bar_entity.collection:
+  title: 'Bar list'
+  route_name: entity.bar_entity.collection
+  description: 'List Bar entities'
+  parent: system.admin_structure
+  weight: 100
+
+bar_entity.admin.structure.settings:
+  title: 'Bar settings'
+  description: 'Configure Bar entities'
+  route_name: bar_entity.settings
+  parent: system.admin_structure

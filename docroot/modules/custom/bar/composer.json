@@ -1,0 +1,14 @@
+{
+  "name": "drupal/bar",
+  "type": "drupal-module",
+  "description": "Find Your Game bars",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/bar",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/bar",
+    "source": "http://cgit.drupalcode.org/bar"
+  },
+  "require": { }
+}

@@ -1,0 +1,27 @@
+# Bar routing definition
+bar_entity.settings_tab:
+  route_name: bar_entity.settings
+  title: 'Settings'
+  base_route: bar_entity.settings
+
+entity.bar_entity.canonical:
+  route_name: entity.bar_entity.canonical
+  base_route: entity.bar_entity.canonical
+  title: 'View'
+
+entity.bar_entity.edit_form:
+  route_name: entity.bar_entity.edit_form
+  base_route: entity.bar_entity.canonical
+  title: 'Edit'
+
+entity.bar_entity.version_history:
+  route_name: entity.bar_entity.version_history
+  base_route: entity.bar_entity.canonical
+  title: 'Revisions'
+
+entity.bar_entity.delete_form:
+  route_name:  entity.bar_entity.delete_form
+  base_route:  entity.bar_entity.canonical
+  title: Delete
+  weight: 10
+

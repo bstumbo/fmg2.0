@@ -1,0 +1,7 @@
+name: Bar Data Migration
+type: module
+description: 'Migrations for bar, leagues, teams, etc.'
+package: Migration
+core: 8.x
+dependencies:
+  - migrate_plus

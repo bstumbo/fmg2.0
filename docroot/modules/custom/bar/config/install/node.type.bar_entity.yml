@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - bar # This is the name of the module we're using for this example
+name: 'Bar'
+type: bar_entity
+description: 'Find Your Game bar'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

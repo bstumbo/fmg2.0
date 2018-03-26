@@ -17,6 +17,9 @@ use Drupal\migrate\Event\MigrateMapDeleteEvent;
 use Drupal\migrate\Event\MigrateImportEvent;
 use Drupal\migrate_plus\Event\MigratePrepareRowEvent;
 
+/**
+ * Defines a migrate executable class for drush.
+ */
 class MigrateExecutable extends MigrateExecutableBase {
 
   /**
@@ -25,12 +28,12 @@ class MigrateExecutable extends MigrateExecutableBase {
    * @var array
    *   Set of counters, keyed by MigrateIdMapInterface::STATUS_* constant.
    */
-  protected $saveCounters = array(
+  protected $saveCounters = [
     MigrateIdMapInterface::STATUS_FAILED => 0,
     MigrateIdMapInterface::STATUS_IGNORED => 0,
     MigrateIdMapInterface::STATUS_IMPORTED => 0,
     MigrateIdMapInterface::STATUS_NEEDS_UPDATE => 0,
-  );
+  ];
 
   /**
    * Counter of map deletions.
@@ -40,8 +43,9 @@ class MigrateExecutable extends MigrateExecutableBase {
   protected $deleteCounter = 0;
 
   /**
-   * Maximum number of items to process in this migration. 0 indicates no limit
-   * is to be applied.
+   * Maximum number of items to process in this migration.
+   *
+   * 0 indicates no limit is to be applied.
    *
    * @var int
    */
@@ -63,6 +67,7 @@ class MigrateExecutable extends MigrateExecutableBase {
 
   /**
    * Count of number of items processed so far in this migration.
+   *
    * @var int
    */
   protected $counter = 0;
@@ -93,10 +98,12 @@ class MigrateExecutable extends MigrateExecutableBase {
       $this->feedback = $options['feedback'];
     }
     if (isset($options['idlist'])) {
-      $this->idlist = explode(',', $options['idlist']);
-      array_walk($this->idlist , function(&$value, $key) {
-        $value = explode(':', $value);
-      });
+      if (is_string($options['idlist'])) {
+        $this->idlist = explode(',', $options['idlist']);
+        array_walk($this->idlist, function (&$value, $key) {
+          $value = explode(':', $value);
+        });
+      }
     }
 
     $this->listeners[MigrateEvents::MAP_SAVE] = [$this, 'onMapSave'];
@@ -147,6 +154,7 @@ class MigrateExecutable extends MigrateExecutableBase {
    * Return the number of items created.
    *
    * @return int
+   *   The number of items created.
    */
   public function getCreatedCount() {
     return $this->saveCounters[MigrateIdMapInterface::STATUS_IMPORTED];
@@ -156,6 +164,7 @@ class MigrateExecutable extends MigrateExecutableBase {
    * Return the number of items updated.
    *
    * @return int
+   *   The updated count.
    */
   public function getUpdatedCount() {
     return $this->saveCounters[MigrateIdMapInterface::STATUS_NEEDS_UPDATE];
@@ -165,6 +174,7 @@ class MigrateExecutable extends MigrateExecutableBase {
    * Return the number of items ignored.
    *
    * @return int
+   *   The ignored count.
    */
   public function getIgnoredCount() {
     return $this->saveCounters[MigrateIdMapInterface::STATUS_IGNORED];
@@ -174,17 +184,20 @@ class MigrateExecutable extends MigrateExecutableBase {
    * Return the number of items that failed.
    *
    * @return int
+   *   The failed count.
    */
   public function getFailedCount() {
     return $this->saveCounters[MigrateIdMapInterface::STATUS_FAILED];
   }
 
   /**
-   * Return the total number of items processed. Note that STATUS_NEEDS_UPDATE
-   * is not counted, since this is typically set on stubs created as side
-   * effects, not on the primary item being imported.
+   * Return the total number of items processed.
+   *
+   * Note that STATUS_NEEDS_UPDATE is not counted, since this is typically set
+   * on stubs created as side effects, not on the primary item being imported.
    *
    * @return int
+   *   The processed count.
    */
   public function getProcessedCount() {
     return $this->saveCounters[MigrateIdMapInterface::STATUS_IMPORTED] +
@@ -197,6 +210,7 @@ class MigrateExecutable extends MigrateExecutableBase {
    * Return the number of items rolled back.
    *
    * @return int
+   *   The rollback count.
    */
   public function getRollbackCount() {
     return $this->deleteCounter;
@@ -235,10 +249,12 @@ class MigrateExecutable extends MigrateExecutableBase {
   }
 
   /**
-   * Emit information on what we've done since the last feedback (or the
-   * beginning of this migration).
+   * Emit information on what we've done.
+   *
+   * Either since the last feedback or the beginning of this migration.
    *
    * @param bool $done
+   *   TRUE if this is the last items to process. Otherwise FALSE.
    */
   protected function progressMessage($done = TRUE) {
     $processed = $this->getProcessedCount();
@@ -252,12 +268,15 @@ class MigrateExecutable extends MigrateExecutableBase {
     }
     $this->message->display(\Drupal::translation()->formatPlural($processed,
       $singular_message, $plural_message,
-        array('@numitems' => $processed,
-              '@created' => $this->getCreatedCount(),
-              '@updated' => $this->getUpdatedCount(),
-              '@failures' => $this->getFailedCount(),
-              '@ignored' => $this->getIgnoredCount(),
-              '@name' => $this->migration->id())));
+        [
+          '@numitems' => $processed,
+          '@created' => $this->getCreatedCount(),
+          '@updated' => $this->getUpdatedCount(),
+          '@failures' => $this->getFailedCount(),
+          '@ignored' => $this->getIgnoredCount(),
+          '@name' => $this->migration->id(),
+        ]
+    ));
   }
 
   /**
@@ -272,26 +291,31 @@ class MigrateExecutable extends MigrateExecutableBase {
   }
 
   /**
-   * Emit information on what we've done since the last feedback (or the
-   * beginning of this migration).
+   * Emit information on what we've done.
+   *
+   * Either since the last feedback or the beginning of this migration.
    *
    * @param bool $done
+   *   TRUE if this is the last items to rollback. Otherwise FALSE.
    */
   protected function rollbackMessage($done = TRUE) {
-   $rolled_back = $this->getRollbackCount();
-   if ($done) {
-     $singular_message = "Rolled back 1 item - done with '@name'";
-     $plural_message = "Rolled back @numitems items - done with '@name'";
-   }
-   else {
-     $singular_message = "Rolled back 1 item - continuing with '@name'";
-     $plural_message = "Rolled back @numitems items - continuing with '@name'";
-   }
-   $this->message->display(\Drupal::translation()->formatPlural($rolled_back,
-     $singular_message, $plural_message,
-       array('@numitems' => $rolled_back,
-             '@name' => $this->migration->id())));
- }
+    $rolled_back = $this->getRollbackCount();
+    if ($done) {
+      $singular_message = "Rolled back 1 item - done with '@name'";
+      $plural_message = "Rolled back @numitems items - done with '@name'";
+    }
+    else {
+      $singular_message = "Rolled back 1 item - continuing with '@name'";
+      $plural_message = "Rolled back @numitems items - continuing with '@name'";
+    }
+    $this->message->display(\Drupal::translation()->formatPlural($rolled_back,
+      $singular_message, $plural_message,
+      [
+        '@numitems' => $rolled_back,
+        '@name' => $this->migration->id(),
+      ]
+    ));
+  }
 
   /**
    * React to an item about to be imported.
@@ -329,14 +353,12 @@ class MigrateExecutable extends MigrateExecutableBase {
    *   The prepare-row event.
    *
    * @throws \Drupal\migrate\MigrateSkipRowException
-   *
    */
   public function onPrepareRow(MigratePrepareRowEvent $event) {
     if (!empty($this->idlist)) {
       $row = $event->getRow();
-      /**
-       * @TODO replace for $source_id = $row->getSourceIdValues(); when https://www.drupal.org/node/2698023 is fixed
-       */
+      // TODO: replace for $source_id = $row->getSourceIdValues();
+      // when https://www.drupal.org/node/2698023 is fixed.
       $migration = $event->getMigration();
       $source_id = array_merge(array_flip(array_keys($migration->getSourcePlugin()
         ->getIds())), $row->getSourceIdValues());

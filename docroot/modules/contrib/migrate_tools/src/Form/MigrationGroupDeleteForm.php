@@ -7,7 +7,7 @@ use Drupal\Core\Url;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Class MigrationGroupDeleteForm.
+ * Provides the delete form for our Migration Group entity.
  *
  * @package Drupal\migrate_tools\Form
  *
@@ -22,9 +22,9 @@ class MigrationGroupDeleteForm extends EntityConfirmFormBase {
    *   Translated string.
    */
   public function getQuestion() {
-    return $this->t('Are you sure you want to delete migration group %label?', array(
-        '%label' => $this->entity->label(),
-    ));
+    return $this->t('Are you sure you want to delete migration group %label?', [
+      '%label' => $this->entity->label(),
+    ]);
   }
 
   /**
@@ -60,9 +60,9 @@ class MigrationGroupDeleteForm extends EntityConfirmFormBase {
     $this->entity->delete();
 
     // Set a message that the entity was deleted.
-    drupal_set_message(t('Migration group %label was deleted.', array(
+    drupal_set_message(t('Migration group %label was deleted.', [
       '%label' => $this->entity->label(),
-    )));
+    ]));
 
     // Redirect the user to the list controller when complete.
     $form_state->setRedirectUrl($this->getCancelUrl());

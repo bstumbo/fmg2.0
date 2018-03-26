@@ -1,0 +1,19 @@
+uuid: 776d8b63-35e5-42f1-b68a-a42200285f13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mdb_id
+    - node.type.bar_entity
+id: node.bar_entity.field_mdb_id
+field_name: field_mdb_id
+entity_type: node
+bundle: bar_entity
+label: mdb_id
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
