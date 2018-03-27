@@ -1,0 +1,19 @@
+uuid: 45d2182f-afca-4a12-bb06-1e5589445b36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.bar_entity
+id: node.bar_entity.field_website
+field_name: field_website
+entity_type: node
+bundle: bar_entity
+label: Website
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

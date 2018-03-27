@@ -1,0 +1,21 @@
+uuid: 47e622a0-1b26-4548-9b7c-4a17f303be5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_facebook_link
+field_name: field_facebook_link
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

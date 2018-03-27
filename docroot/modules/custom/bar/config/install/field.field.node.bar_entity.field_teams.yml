@@ -1,0 +1,29 @@
+uuid: 22ede13e-38ce-4ba2-93f0-a57ddc29c7d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teams
+    - node.type.bar_entity
+    - taxonomy.vocabulary.teams
+id: node.bar_entity.field_teams
+field_name: field_teams
+entity_type: node
+bundle: bar_entity
+label: Teams
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      teams: teams
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 62f48ffb-7e55-49f5-8415-fcdd0e6d64d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sports
+    - node.type.bar_entity
+    - taxonomy.vocabulary.sports
+id: node.bar_entity.field_sports
+field_name: field_sports
+entity_type: node
+bundle: bar_entity
+label: Sports
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sports: sports
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
