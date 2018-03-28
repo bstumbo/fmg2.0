@@ -1,0 +1,27 @@
+uuid: 0110609a-9ac3-4a55-9e8c-6445c9fffa2a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_business_size
+field_name: field_business_size
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: national
+      label: City
+    -
+      value: single_location
+      label: 'Single Location'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

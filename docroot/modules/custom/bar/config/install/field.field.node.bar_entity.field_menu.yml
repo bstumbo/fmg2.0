@@ -1,0 +1,21 @@
+uuid: 745519ce-de42-4f63-ba4b-a7b44ef56d00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_menu
+    - node.type.bar_entity
+  module:
+    - text
+id: node.bar_entity.field_menu
+field_name: field_menu
+entity_type: node
+bundle: bar_entity
+label: Menu
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,21 @@
+uuid: bbe53087-cccc-4702-968e-593b8248c952
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_food_prices
+    - node.type.bar_entity
+  module:
+    - options
+id: node.bar_entity.field_food_prices
+field_name: field_food_prices
+entity_type: node
+bundle: bar_entity
+label: 'Food Prices'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,21 @@
+uuid: 68d391f1-8bc7-4e23-816b-31cf8a2a0361
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_staples
+    - node.type.bar_entity
+  module:
+    - text
+id: node.bar_entity.field_staples
+field_name: field_staples
+entity_type: node
+bundle: bar_entity
+label: Staples
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

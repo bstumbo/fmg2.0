@@ -1,0 +1,33 @@
+uuid: 0718bb90-0f17-4341-92ca-e68a08a30a70
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_food_prices
+field_name: field_food_prices
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '012'
+      label: $0-12
+    -
+      value: '1220'
+      label: $12-20
+    -
+      value: '2030'
+      label: $20-30
+    -
+      value: '30'
+      label: $30+
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: a140462a-0469-4324-bba8-f3a2ddd9e103
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_business_size
+    - node.type.bar_entity
+  module:
+    - options
+id: node.bar_entity.field_business_size
+field_name: field_business_size
+entity_type: node
+bundle: bar_entity
+label: 'Business Size'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

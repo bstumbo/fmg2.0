@@ -1,0 +1,39 @@
+uuid: 15b37f1b-aa59-46cf-845a-8ea2628cabb0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_vibe
+field_name: field_vibe
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: sports
+      label: 'Sports Bar'
+    -
+      value: college
+      label: 'College Bar'
+    -
+      value: dive
+      label: 'Dive Bar'
+    -
+      value: family
+      label: 'Family Restaurant'
+    -
+      value: swanky
+      label: 'Swanky Restaurant'
+    -
+      value: professional
+      label: Professional
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -13,6 +13,54 @@ source:
   urls: 'http://findyourgamedc.com/app/migrations/Bar.json'
   fields:
     -
+      name: bar_description
+      label: 'Bar Description'
+      selector: bardescription
+    -
+      name: business_type
+      label: 'Business Type'
+      selector: type
+    -
+      name: child_appropriate
+      label: 'Child Appropriate'
+      selector: ageappropriate
+    -
+      name: facebook
+      label: 'Facebook Link'
+      selector: facebook
+    -
+      name: foodprices
+      label: 'Food Prices'
+      selector: foodprices
+    -
+      name: hours
+      label: 'Bar Hours'
+      selector: hours
+    -
+      name: instagram
+      label: 'Instagram'
+      selector: instagram
+    -
+      name: latitude
+      label: 'Latitude'
+      selector: latitude
+    -
+      name: leagues
+      label: 'Leagues'
+      selector: leagues
+    -
+      name: location
+      label: 'Bar Location'
+      selector: location
+    -
+      name: longitude
+      label: 'Longitude'
+      selector: longitude
+    -
+      name: menu
+      label: 'Menu'
+      selector: menu
+    -
       name: mdb_id
       label: 'MongoDB ID'
       selector: _id/$oid
@@ -21,21 +69,41 @@ source:
       label: 'Bar Name'
       selector: name
     -
-      name: bar_description
-      label: 'Bar Description'
-      selector: bardescription
-    -
-      name: location
-      label: 'Bar Location'
-      selector: location
-    -
-      name: hours
-      label: 'Bar Hours'
-      selector: hours
-    -
       name: phone_number
       label: 'Phone Number'
       selector: phone
+    -
+      name: snapchat
+      label: 'Snapchat link'
+      selector: snapchat
+    -
+      name: sports
+      label: 'Sports'
+      selector: sports
+    -
+      name: staples
+      label: 'Staples'
+      selector: staples
+   -
+      name: teams
+      label: 'Teams'
+      selecctor: affliations
+    -
+      name: televisions
+      label: 'Televisions'
+      selector: televisions
+    -
+      name: twitter
+      label: 'Twitter'
+      selector: twitter
+    -
+      name: vibe
+      label: 'Vibe'
+      selector: vibe
+    -
+      name: website
+      label: 'Website'
+      selector: website
   ids:
     mdb_id:
       type: string
@@ -43,15 +111,30 @@ destination:
   plugin: entity:node
 
 process:
+  field_bar_description: bar_description
+  #field_business_size: TODO
+  field_child: child_appropriate
+  #field_food_prices: foodprices TODO
+  field_bar_hours: hours
+  field_instagram_link: instagram
+  #field_leagues: leagues TODO
+  field_location: location
+  field_mdb_id: mdb_id
+  field_menu: menu
+  field_number_of_televisions: televisions
+  field_phone_number: phone_number
+  #field_point: TODO
+  field_snapchat_link: snapchat
+  #field_sports: sports TODO
+  field_staples: staples
+  #field_teams: teams TODO
+  title: name
+  field_twitter_link: twitter
+  field_vibe: vibe
+  field_website: website
   type:
     plugin: default_value
     default_value: bar_entity
-  field_mdb_id: mdb_id
-  title: name
-  field_bar_description: bar_description
-  field_location: location
-  field_bar_hours: hours
-  field_phone_number: phone_number
 migration_dependencies: {}
 dependencies:
   enforced:
