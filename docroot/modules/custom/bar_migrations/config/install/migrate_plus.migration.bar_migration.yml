@@ -7,10 +7,9 @@ source:
   plugin: url
   data_fetcher_plugin: http
   data_parser_plugin: json
-  item_selector: results
   headers:
     Accept: 'application/json; charset=utf-8'
-  urls: 'http://findyourgamedc.com/app/migrations/Bar.json'
+  urls: 'http://findyourgamedc.com/app/migrations/BarsNew.json'
   fields:
     -
       name: bar_description
@@ -84,10 +83,10 @@ source:
       name: staples
       label: 'Staples'
       selector: staples
-   -
+    -
       name: teams
       label: 'Teams'
-      selecctor: affliations
+      selector: affiliations
     -
       name: televisions
       label: 'Televisions'
@@ -117,7 +116,9 @@ process:
   #field_food_prices: foodprices TODO
   field_bar_hours: hours
   field_instagram_link: instagram
-  #field_leagues: leagues TODO
+  field_leagues:
+    plugin: entity_lookup
+    source: leagues
   field_location: location
   field_mdb_id: mdb_id
   field_menu: menu
@@ -125,9 +126,332 @@ process:
   field_phone_number: phone_number
   #field_point: TODO
   field_snapchat_link: snapchat
-  #field_sports: sports TODO
+  field_sports:
+    plugin: entity_lookup
+    source: leagues
   field_staples: staples
-  #field_teams: teams TODO
+  field_teams:
+    -
+      plugin: static_map
+      source: teams
+      bypass: TRUE
+      map:
+        59cce7cdf25f2bfe375a8a6d: Air Force
+        59cce865f25f2b51255a8a2c: Akron
+        59cce7cdf25f2bfe375a8a55: Alabama
+        573a2a7e56e4ec3f007f73a1: Albania
+        59cce865f25f2b51255a8a71: Anaheim Ducks
+        59cce7cdf25f2bfe375a8a5d: Appalachian State
+        59cce7cdf25f2bfe375a8a4c: Arizona
+        59835cfef25f2b7d278b4567: Arizona Cardinals
+        59cce865f25f2b51255a8a72: Arizona Coyotes
+        573a2a7e56e4ec3f007f7370: Arizona Diamondbacks
+        59cce7cdf25f2bfe375a8a4a: Arizona State
+        59cce7cdf25f2bfe375a8a5b: Arkansas
+        59cce7cdf25f2bfe375a8a60: Arkansas State
+        59cce865f25f2b51255a8a36: Army
+        573a2a7e56e4ec3f007f7371: Atlanta Braves
+        59835cfef25f2b7d278b4568: Atlanta Falcons
+        59cce865f25f2b51255a8a53: Atlanta Hawks
+        59cce7cdf25f2bfe375a8a56: Auburn
+        573a2a7e56e4ec3f007f73a2: Austria
+        59cce865f25f2b51255a8a31: Ball State
+        573a2a7e56e4ec3f007f7372: Baltimore Orioles
+        59835cfef25f2b7d278b4569: Baltimore Ravens
+        59cce7cdf25f2bfe375a8a33: Baylor
+        573a2a7e56e4ec3f007f73a3: Belgium
+        59cce7cdf25f2bfe375a8a68: Boise State
+        59cce865f25f2b51255a8a73: Boston Bruins
+        59cce865f25f2b51255a8a54: Boston Celtics
+        59cce7cdf25f2bfe375a8a22: Boston College
+        573a2a7e56e4ec3f007f7373: Boston Red Sox
+        59cce865f25f2b51255a8a2e: Bowling Green
+        59cce865f25f2b51255a8a2b: Buffalo
+        59835cfef25f2b7d278b456a: Buffalo Bills
+        59cce865f25f2b51255a8a74: Buffalo Sabres
+        5aaa9a6df25f2b444fead78f: Butler
+        59cce865f25f2b51255a8a37: BYU
+        59cce865f25f2b51255a8a75: Calgary Flames
+        59cce7cdf25f2bfe375a8a45: California
+        59cce865f25f2b51255a8a76: Carolina Hurricanes
+        59835c46f25f2b88278b4578: Carolina Panthers
+        59cce865f25f2b51255a8a34: Central Michigan
+        59cce865f25f2b51255a8a3e: Charlotte
+        59cce865f25f2b51255a8a55: Charlotte Bobcats
+        59835cfef25f2b7d278b456c: Chicago Bears
+        59cce865f25f2b51255a8a77: Chicago Blackhawks
+        59cce865f25f2b51255a8a56: Chicago Bulls
+        573a2a7e56e4ec3f007f7374: Chicago Cubs
+        573a2a7e56e4ec3f007f738e: Chicago Fire
+        573a2a7e56e4ec3f007f7375: Chicago White Sox
+        59cce865f25f2b51255a8a4a: Cincinnati
+        59835cfef25f2b7d278b456d: Cincinnati Bengals
+        573a2a7e56e4ec3f007f7376: Cincinnati Reds
+        59cce7cdf25f2bfe375a8a1c: Clemson
+        59835cfef25f2b7d278b456e: Cleveland Browns
+        59cce865f25f2b51255a8a57: Cleveland Cavaliers
+        573a2a7e56e4ec3f007f7377: Cleveland Indians
+        59cce7cdf25f2bfe375a8a61: Coastal Carolina
+        59cce7cdf25f2bfe375a8a4b: Colorado
+        59cce865f25f2b51255a8a78: Colorado Avalanche
+        573a2a7e56e4ec3f007f7397: Colorado Rapids
+        573a2a7e56e4ec3f007f7378: Colorado Rockies
+        59cce7cdf25f2bfe375a8a6b: Colorado State
+        59cce865f25f2b51255a8a79: Columbus Blue Jackets
+        573a2a7e56e4ec3f007f738f: Columbus Crew
+        5aaa9a6df25f2b444fead78b: Creighton
+        573a2a7e56e4ec3f007f73a4: Croatia
+        573a2a7e56e4ec3f007f73a5: Czech Republic
+        573a2a7e56e4ec3f007f7390: D.C. United
+        59835cfef25f2b7d278b456f: Dallas Cowboys
+        59cce865f25f2b51255a8a58: Dallas Mavericks
+        59cce865f25f2b51255a8a7a: Dallas Stars
+        59835cfef25f2b7d278b4570: Denver Broncos
+        59cce865f25f2b51255a8a59: Denver Nuggets
+        5aaa9a6df25f2b444fead792: DePaul
+        59835cfef25f2b7d278b4571: Detroit Lions
+        59cce865f25f2b51255a8a5a: Detroit Pistons
+        59cce865f25f2b51255a8a7b: Detroit Red Wings
+        573a2a7e56e4ec3f007f7379: Detroit Tigers
+        59cce7cdf25f2bfe375a8a23: Duke
+        59cce865f25f2b51255a8a48: East Carolina
+        59cce865f25f2b51255a8a33: Eastern Michigan
+        59cce865f25f2b51255a8a7c: Edmonton Oilers
+        573a2a7e56e4ec3f007f73a6: England
+        573a2a7e56e4ec3f007f7398: FC Dallas
+        59cce7cdf25f2bfe375a8a4e: Florida
+        59cce865f25f2b51255a8a3d: Florida Atlantic
+        59cce865f25f2b51255a8a39: Florida Intl
+        59cce865f25f2b51255a8a7d: Florida Panthers
+        59cce7cdf25f2bfe375a8a21: Florida State
+        573a2a7e56e4ec3f007f73a7: France
+        59cce7cdf25f2bfe375a8a6f: Fresno State
+        5aaa9a6df25f2b444fead790: Georgetown
+        59cce7cdf25f2bfe375a8a4f: Georgia
+        59cce7cdf25f2bfe375a8a63: Georgia Southern
+        59cce7cdf25f2bfe375a8a62: Georgia State
+        59cce7cdf25f2bfe375a8a24: Georgia Tech
+        573a2a7e56e4ec3f007f73a8: Germany
+        59cce865f25f2b51255a8a5b: Golden State Warriors
+        5ab3e77cf25f2bc00f99e233: Gonzaga
+        59835cfef25f2b7d278b4572: Green Bay Packers
+        59cce7cdf25f2bfe375a8a72: Hawai'i
+        59cce865f25f2b51255a8a50: Houston
+        573a2a7e56e4ec3f007f737a: Houston Astros
+        573a2a7e56e4ec3f007f7399: Houston Dynamo
+        59cce865f25f2b51255a8a5c: Houston Rockets
+        59835cfef25f2b7d278b4573: Houston Texans
+        573a2a7e56e4ec3f007f73a9: Hungary
+        573a2a7e56e4ec3f007f73aa: Iceland
+        59cce7cdf25f2bfe375a8a5e: Idaho
+        59cce7cdf25f2bfe375a8a3e: Illinois
+        59cce7cdf25f2bfe375a8a39: Indiana
+        59cce865f25f2b51255a8a5d: Indiana Pacers
+        59835cfef25f2b7d278b4574: Indianapolis Colts
+        59cce7cdf25f2bfe375a8a40: Iowa
+        59cce7cdf25f2bfe375a8a2e: Iowa State
+        573a2a7e56e4ec3f007f73ab: Italy
+        59835c46f25f2b88278b4582: Jacksonville Jaguars
+        59cce7cdf25f2bfe375a8a32: Kansas
+        59835c46f25f2b88278b4583: Kansas City Chiefs
+        59835cfef25f2b7d278b4576: Kansas City Chiefs
+        573a2a7e56e4ec3f007f737b: Kansas City Royals
+        59cce7cdf25f2bfe375a8a2f: Kansas State
+        59cce865f25f2b51255a8a2d: Kent State
+        59cce7cdf25f2bfe375a8a50: Kentucky
+        59cce865f25f2b51255a8a5e: LA Clippers
+        573a2a7e56e4ec3f007f739a: LA Galaxy
+        59cce865f25f2b51255a8a5f: LA Lakers
+        573a2a7e56e4ec3f007f737c: Los Angeles Angels
+        59835c46f25f2b88278b4584: Los Angeles Chargers
+        573a2a7e56e4ec3f007f737d: Los Angeles Dodgers
+        59cce865f25f2b51255a8a7e: Los Angeles Kings
+        59835dcef25f2bb72c8b4568: Los Angeles Rams
+        59cce7cdf25f2bfe375a8a65: Louisiana
+        59cce7cdf25f2bfe375a8a5f: Louisiana Monroe
+        59cce865f25f2b51255a8a40: Louisiana Tech
+        59cce7cdf25f2bfe375a8a1f: Louisville
+        5ab3e77cf25f2bc00f99e234: Loyola-Chicago
+        59cce7cdf25f2bfe375a8a5a: LSU
+        5aaa9a6df25f2b444fead78e: Marquette
+        59cce865f25f2b51255a8a3a: Marshall
+        59cce7cdf25f2bfe375a8a37: Maryland
+        59cce865f25f2b51255a8a4e: Memphis
+        59cce865f25f2b51255a8a60: Memphis Grizzlies
+        59cce7cdf25f2bfe375a8a27: Miami
+        59cce865f25f2b51255a8a2a: Miami (OH)
+        59835dcef25f2bb72c8b4569: Miami Dolphins
+        59cce865f25f2b51255a8a61: Miami Heat
+        573a2a7e56e4ec3f007f737e: Miami Marlins
+        59cce7cdf25f2bfe375a8a34: Michigan
+        59cce7cdf25f2bfe375a8a38: Michigan State
+        59cce865f25f2b51255a8a3b: Middle Tennessee
+        573a2a7e56e4ec3f007f737f: Milwaukee Brewers
+        59cce865f25f2b51255a8a62: Milwaukee Bucks
+        59cce7cdf25f2bfe375a8a3c: Minnesota
+        59cce865f25f2b51255a8a63: Minnesota Timberwolves
+        573a2a7e56e4ec3f007f7380: Minnesota Twins
+        59835dcef25f2bb72c8b456a: Minnesota Vikings
+        59cce865f25f2b51255a8a7f: Minnesota Wild
+        59cce7cdf25f2bfe375a8a58: Mississippi State
+        59cce7cdf25f2bfe375a8a54: Missouri
+        59cce865f25f2b51255a8a80: Montreal Canadiens
+        573a2a7e56e4ec3f007f7391: Montreal Impact
+        59cce865f25f2b51255a8a81: Nashville Predators
+        59cce865f25f2b51255a8a4d: Navy
+        59cce7cdf25f2bfe375a8a1e: NC State
+        59cce7cdf25f2bfe375a8a3b: Nebraska
+        59cce7cdf25f2bfe375a8a71: Nevada
+        59835dcef25f2bb72c8b456b: New England Patriots
+        573a2a7e56e4ec3f007f7392: New England Revloution
+        59cce865f25f2b51255a8a82: New Jersey Devils
+        59cce865f25f2b51255a8a64: New Jersey Nets
+        59cce7cdf25f2bfe375a8a6c: New Mexico
+        59cce7cdf25f2bfe375a8a64: New Mexico State
+        59cce865f25f2b51255a8a65: New Orleans Hornets
+        59835dcef25f2bb72c8b456c: New Orleans Saints
+        573a2a7e56e4ec3f007f7393: New York City FC
+        59835dcef25f2bb72c8b456d: New York Giants
+        59cce865f25f2b51255a8a83: New York Islanders
+        59835dcef25f2bb72c8b456e: New York Jets
+        59cce865f25f2b51255a8a66: New York Knicks
+        573a2a7e56e4ec3f007f7381: New York Mets
+        59cce865f25f2b51255a8a84: New York Rangers
+        573a2a7e56e4ec3f007f7394: New York Red Bulls
+        573a2a7e56e4ec3f007f7382: New York Yankees
+        59cce7cdf25f2bfe375a8a29: North Carolina
+        59cce865f25f2b51255a8a41: North Texas
+        59cce865f25f2b51255a8a30: Northern Illinois
+        573a2a7e56e4ec3f007f73ac: Northern Ireland
+        59cce7cdf25f2bfe375a8a3f: Northwestern
+        59cce865f25f2b51255a8a35: Notre Dame
+        573a2a7e56e4ec3f007f7383: Oakland Athletics
+        59835dcef25f2bb72c8b456f: Oakland Raiders
+        59cce865f25f2b51255a8a29: Ohio
+        59cce7cdf25f2bfe375a8a36: Ohio State
+        59cce7cdf25f2bfe375a8a2a: Oklahoma
+        59cce865f25f2b51255a8a67: Oklahoma City Thunder
+        59cce7cdf25f2bfe375a8a31: Oklahoma State
+        59cce865f25f2b51255a8a3c: Old Dominion
+        59cce7cdf25f2bfe375a8a59: Ole Miss
+        59cce7cdf25f2bfe375a8a46: Oregon
+        59cce7cdf25f2bfe375a8a47: Oregon State
+        573a2a7e56e4ec3f007f7395: Orlando City SC
+        59cce865f25f2b51255a8a68: Orlando Magic
+        59cce865f25f2b51255a8a85: Ottawa Senators
+        59cce7cdf25f2bfe375a8a35: Penn State
+        59835dcef25f2bb72c8b4570: Philadelphia Eagles
+        59cce865f25f2b51255a8a86: Philadelphia Flyers
+        573a2a7e56e4ec3f007f7384: Philadelphia Phillies
+        59cce865f25f2b51255a8a69: Philadelphia Sixers
+        573a2a7e56e4ec3f007f7396: Philadelphia Union
+        59cce865f25f2b51255a8a6a: Phoenix Suns
+        59cce7cdf25f2bfe375a8a28: Pittsburgh
+        59cce865f25f2b51255a8a87: Pittsburgh Penguins
+        573a2a7e56e4ec3f007f7385: Pittsburgh Pirates
+        59835dcef25f2bb72c8b4571: Pittsburgh Steelers
+        573a2a7e56e4ec3f007f73ad: Poland
+        573a2a7e56e4ec3f007f739b: Portland Timbers
+        59cce865f25f2b51255a8a6b: Portland Trail Blazers
+        573a2a7e56e4ec3f007f73ae: Portugal
+        5aaa9a6df25f2b444fead78d: Providence
+        59cce7cdf25f2bfe375a8a41: Purdue
+        573a2a7e56e4ec3f007f739c: Real Salt Lake
+        573a2a7e56e4ec3f007f73af: Republic of Ireland
+        59cce865f25f2b51255a8a42: Rice
+        573a2a7e56e4ec3f007f73b0: Romania
+        573a2a7e56e4ec3f007f73b1: Russia
+        59cce7cdf25f2bfe375a8a3a: Rutgers
+        59cce865f25f2b51255a8a6c: Sacramento Kings
+        59cce865f25f2b51255a8a6d: San Antonio Spurs
+        573a2a7e56e4ec3f007f7386: San Diego Padres
+        59cce7cdf25f2bfe375a8a6e: San Diego State
+        59835dcef25f2bb72c8b4572: San Francisco 49ers
+        573a2a7e56e4ec3f007f7387: San Francisco Giants
+        573a2a7e56e4ec3f007f739d: San Jose Earthquakes
+        59cce865f25f2b51255a8a88: San Jose Sharks
+        59cce814f25f2b6b6e5a8a1c: San Jose State
+        573a2a7e56e4ec3f007f7388: Seattle Mariners
+        59835dcef25f2bb72c8b4573: Seattle Seahawks
+        573a2a7e56e4ec3f007f739e: Seattle Sounders FC
+        5aaa9a6df25f2b444fead78c: Seton Hall
+        573a2a7e56e4ec3f007f73b2: Slovakia
+        59cce865f25f2b51255a8a4f: SMU
+        59cce7cdf25f2bfe375a8a66: South Alabama
+        59cce7cdf25f2bfe375a8a51: South Carolina
+        59cce865f25f2b51255a8a47: South Florida
+        59cce865f25f2b51255a8a44: Southern Mississippi
+        573a2a7e56e4ec3f007f73b3: Spain
+        573a2a7e56e4ec3f007f739f: Sporting Kansas City
+        59cce865f25f2b51255a8a89: St Louis Blues
+        5aaa9a6df25f2b444fead791: St. Johns
+        573a2a7e56e4ec3f007f7389: St. Louis Cardinals
+        59cce7cdf25f2bfe375a8a44: Stanford
+        573a2a7e56e4ec3f007f73b4: Sweden
+        573a2a7e56e4ec3f007f73b5: Switzerland
+        59cce7cdf25f2bfe375a8a20: Syracuse
+        59835dcef25f2bb72c8b4574: Tampa Bay Buccaneers
+        59cce865f25f2b51255a8a8a: Tampa Bay Lightning
+        573a2a7e56e4ec3f007f738a: Tampa Bay Rays
+        59cce7cdf25f2bfe375a8a2b: TCU
+        59cce865f25f2b51255a8a4b: Temple
+        59cce7cdf25f2bfe375a8a52: Tennessee
+        59835dcef25f2bb72c8b4575: Tennessee Titans
+        59cce7cdf25f2bfe375a8a30: Texas
+        59cce7cdf25f2bfe375a8a57: Texas A&amp;M
+        573a2a7e56e4ec3f007f738b: Texas Rangers
+        59cce7cdf25f2bfe375a8a67: Texas State
+        59cce7cdf25f2bfe375a8a2d: Texas Tech
+        59cce865f25f2b51255a8a2f: Toledo
+        573a2a7e56e4ec3f007f738c: Toronto Blue Jays
+        59cce865f25f2b51255a8a8b: Toronto Maple Leafs
+        59cce865f25f2b51255a8a6e: Toronto Raptors
+        59cce7cdf25f2bfe375a8a5c: Troy
+        59cce865f25f2b51255a8a52: Tulane
+        59cce865f25f2b51255a8a51: Tulsa
+        573a2a7e56e4ec3f007f73b6: Turkey
+        59cce865f25f2b51255a8a45: UAB
+        59cce865f25f2b51255a8a49: UCF
+        59cce7cdf25f2bfe375a8a4d: UCLA
+        59cce865f25f2b51255a8a4c: UCONN
+        573a2a7e56e4ec3f007f73b7: Ukraine
+        59cce865f25f2b51255a8a38: Umass
+        59cce7cdf25f2bfe375a8a70: UNLV
+        59cce7cdf25f2bfe375a8a48: USC
+        59cce865f25f2b51255a8a43: UT San Antonio
+        59cce7cdf25f2bfe375a8a49: Utah
+        59cce865f25f2b51255a8a6f: Utah Jazz
+        59cce7cdf25f2bfe375a8a69: Utah State
+        59cce865f25f2b51255a8a46: UTEP
+        59cce865f25f2b51255a8a8c: Vancouver Canucks
+        573a2a7e56e4ec3f007f73a0: Vancover Whitecaps FC
+        59cce7cdf25f2bfe375a8a53: Vanderbilt
+        59cce865f25f2b51255a8a8d: Vegas Golden Knights
+        59cce7cdf25f2bfe375a8a25: Viginia Tech
+        5aaa9a6df25f2b444fead78a: Villanova
+        59cce7cdf25f2bfe375a8a26: Virginia
+        59cce7cdf25f2bfe375a8a1d: Wake Forest
+        573a2a7e56e4ec3f007f73b8: Wales
+        59cce7cdf25f2bfe375a8a42: Washington
+        59cce865f25f2b51255a8a8e: Washington Capitals
+        573a2a7e56e4ec3f007f738d: Washington Nationals
+        59835dcef25f2bb72c8b4576: Washington Redskins
+        59cce7cdf25f2bfe375a8a43: Washington State
+        59cce865f25f2b51255a8a70: Washington Wizards
+        59cce7cdf25f2bfe375a8a2c: West Virginia
+        59cce865f25f2b51255a8a3f: Western Kentucky
+        59cce865f25f2b51255a8a32: Western Michigan
+        59cce865f25f2b51255a8a8f: Winnipeg Jets
+        59cce7cdf25f2bfe375a8a3d: Wisconsin
+        59cce7cdf25f2bfe375a8a6a: Wyoming
+        5aaa9a6df25f2b444fead789: Xavier
+    -
+      plugin: entity_lookup
+      ignore_case: true
+      value_key: name
+      entity_type: taxonomy_term
+      bundle_key: vid
+      bundle: teams
   title: name
   field_twitter_link: twitter
   field_vibe: vibe
