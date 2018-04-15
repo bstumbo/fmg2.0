@@ -111,9 +111,22 @@ destination:
 
 process:
   field_bar_description: bar_description
-  #field_business_size: TODO
+  field_business_size:
+    plugin: static_map
+    source: business_type
+    map:
+      0: national
+      1: city
+      2: single_location
   field_child: child_appropriate
-  #field_food_prices: foodprices TODO
+  field_food_prices:
+    plugin: static_map
+    source: foodprices
+    map:
+      0: 012
+      1: 1220
+      2: 2030
+      3: 30
   field_bar_hours: hours
   field_instagram_link: instagram
   field_leagues:
@@ -124,7 +137,8 @@ process:
   field_menu: menu
   field_number_of_televisions: televisions
   field_phone_number: phone_number
-  #field_point: TODO
+  'field_point/lng': longitude
+  'field_point/lat': latitude
   field_snapchat_link: snapchat
   field_sports:
     plugin: entity_lookup
@@ -454,7 +468,16 @@ process:
       bundle: teams
   title: name
   field_twitter_link: twitter
-  field_vibe: vibe
+  field_vibe:
+    plugin: static_map
+    source: vibe
+    map:
+      0: sports
+      1: college
+      2: dive
+      3: family
+      4: swanky
+      5: professional
   field_website: website
   type:
     plugin: default_value
